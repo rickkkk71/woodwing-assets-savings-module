@@ -1,0 +1,54 @@
+/* module.css */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400&family=Raleway:wght@600&display=swap');
+
+:root {
+  --ww-accent-color: {{ module.accent_color }};
+}
+
+.ww-assets-savings {
+  font-family: 'Mulish', sans-serif;
+  color: #333;
+  padding: 1rem;
+}
+.ww-logo {
+  max-width: 200px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+.ww-header { text-align: center; }
+
+.ww-questionnaire, .ww-results, .ww-lead-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.ww-step { opacity: 0; transform: translateX(100%); transition: all .3s ease; display: none; }
+.ww-step.active { display: block; opacity: 1; transform: translateX(0); }
+.ww-question { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 1.25rem; margin-bottom: .5rem; }
+.ww-options label, .ww-lead-form label {
+  display: block; margin-bottom: .5rem; cursor: pointer;
+}
+input[type="range"] { width: 100%; }
+#departments-value { font-weight: bold; margin-left: .5rem; }
+
+.ww-navigation, .ww-form-buttons { display: flex; justify-content: space-between; margin-top: 1rem; }
+.ww-btn {
+  padding: .75rem 1.5rem;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  font-family: 'Mulish', sans-serif;
+  font-size: 1rem;
+}
+.ww-btn.accent {
+  background: var(--ww-accent-color);
+  color: #fff;
+}
+.hidden { display: none !important; }
+
+/* Responsive typography */
+@media (min-width: 600px) {
+  .ww-question { font-size: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .ww-question { font-size: 1.75rem; }
+}

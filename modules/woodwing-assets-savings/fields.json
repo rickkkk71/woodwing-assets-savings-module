@@ -1,0 +1,48 @@
+[
+  {
+    "name": "logo",
+    "label": "Company Logo",
+    "type": "image",
+    "default": null
+  },
+  {
+    "name": "accent_color",
+    "label": "Accent Color",
+    "type": "color",
+    "default": "#2fa0a3"
+  },
+  {
+    "name": "form_title",
+    "label": "Form Title",
+    "type": "text",
+    "default": "Get Your Personalized Savings Report"
+  },
+  {
+    "name": "form_description",
+    "label": "Form Description",
+    "type": "richtext",
+    "default": "Fill out the form below to receive a detailed report and learn more about WoodWing Assets."
+  },
+  {
+    "name": "book_demo_link",
+    "label": "Book a Demo Link",
+    "type": "url",
+    "default": "#"
+  },
+  {
+    "name": "download_report_link",
+    "label": "Download Report Link",
+    "type": "url",
+    "default": "#"
+  },
+  {
+    "name": "hourly_rate",
+    "label": "Average Hourly Rate (Backend Only)",
+    "type": "number",
+    "default": 30,
+    "visibility": {
+      "editor": true,
+      "public": false
+    }
+  }
+]

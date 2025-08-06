@@ -1,0 +1,98 @@
+<!-- module.html -->
+{% require_css module.path ~ '/module.css' %}
+{% require_js module.path ~ '/module.js' %}
+
+<div class="ww-assets-savings">
+  <header class="ww-header">
+    <img src="{{ module.logo.src }}" alt="Company Logo" class="ww-logo">
+  </header>
+
+  <div id="questionnaire" class="ww-questionnaire">
+    <div class="ww-step active" data-step="1">
+      <h2 class="ww-question">How many employees are in your company?</h2>
+      <div class="ww-options">
+        {% for opt,label in [
+          ['1-10','1–10'],
+          ['11-50','11–50'],
+          ['51-200','51–200'],
+          ['201-500','201–500'],
+          ['501-1000','501–1000'],
+          ['1000+','1000+']
+        ] %}
+          <label><input type="radio" name="employees" value="{{ opt }}"> {{ label }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ww-step" data-step="2">
+      <h2 class="ww-question">How often does your team need to share files?</h2>
+      <div class="ww-options">
+        {% for opt in ['Daily','Weekly','Monthly','Rarely'] %}
+          <label><input type="radio" name="sharing" value="{{ opt }}"> {{ opt }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ww-step" data-step="3">
+      <h2 class="ww-question">How many teams or departments use files regularly?</h2>
+      <input type="range" name="departments" min="1" max="20" step="1" value="1">
+      <span id="departments-value">1</span>
+    </div>
+
+    <div class="ww-step" data-step="4">
+      <h2 class="ww-question">How many different types of files do you use?</h2>
+      <label><input type="checkbox" name="filetypes" value="documents"> Documents</label>
+      <label><input type="checkbox" name="filetypes" value="images"> Images</label>
+      <label><input type="checkbox" name="filetypes" value="videos"> Videos</label>
+      <label><input type="checkbox" name="filetypes" value="presentations"> Presentations</label>
+      <label>
+        <input type="checkbox" id="others-checkbox"> Others 
+        <input type="text" id="others-text" placeholder="Please specify" disabled>
+      </label>
+    </div>
+
+    <div class="ww-step" data-step="5">
+      <h2 class="ww-question">How much time does your team spend looking for files weekly?</h2>
+      {% for opt,label in [
+        ['0-1','0–1 hour'],
+        ['1-5','1–5 hours'],
+        ['5-10','5–10 hours'],
+        ['10+','10+ hours']
+      ] %}
+        <label><input type="radio" name="search_time" value="{{ opt }}"> {{ label }}</label>
+      {% endfor %}
+    </div>
+
+    <div class="ww-step" data-step="6">
+      <h2 class="ww-question">Do you have files stored in multiple locations?</h2>
+      {% for opt in ['Yes','No','Some'] %}
+        <label><input type="radio" name="storage" value="{{ opt }}"> {{ opt }}</label>
+      {% endfor %}
+    </div>
+
+    <div class="ww-navigation">
+      <button id="prev-btn" class="ww-btn">Previous</button>
+      <button id="next-btn" class="ww-btn accent">Next</button>
+    </div>
+  </div>
+
+  <div id="results" class="ww-results hidden">
+    <h2>Estimated Savings</h2>
+    <p>Your team could save <strong><span id="weekly-savings"></span> hours/week</strong> and <strong><span id="annual-savings"></span> hours/year</strong>, amounting to <strong><span id="currency-symbol"></span><span id="cost-savings"></span></strong> annually.</p>
+  </div>
+
+  <form id="lead-form" class="ww-lead-form hidden" action="{{ module.download_report_link }}" method="post">
+    <h3>{{ module.form_title }}</h3>
+    <div class="ww-description">{{ module.form_description }}</div>
+    <input type="hidden" name="hourly_rate" value="{{ module.hourly_rate }}">
+    <label>Name*<input type="text" name="firstname" required></label>
+    <label>Surname*<input type="text" name="lastname" required></label>
+    <label>Company*<input type="text" name="company" required></label>
+    <label>Email*<input type="email" name="email" required></label>
+    <label>Phone<input type="text" name="phone"></label>
+    <div class="ww-form-buttons">
+      <a href="{{ module.book_demo_link }}" class="ww-btn">Book a Demo</a>
+      <button type="submit" class="ww-btn accent">Download Your Savings Report</button>
+    </div>
+  </form>
+</div>

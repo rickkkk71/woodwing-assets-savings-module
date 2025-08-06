@@ -1,0 +1,20 @@
+How_to_Deploy_WoodWing_Module.pdf
+1. In GitHub Codespaces, confirm your module files (fields.json, module.html, module.css, module.js) are committed and pushed.
+2. In your HubSpot portal, navigate to Marketing → Files and Templates → Design Tools.
+3. In the folder tree, right-click “Modules” → Create new module → Name it “woodwing-assets-savings”.
+4. In the module editor:
+   • Paste the JSON into the **Fields** tab.  
+   • Paste module.html into the **Markup** tab.  
+   • Paste module.css into the **CSS & JS > CSS** tab.  
+   • Paste module.js into the **CSS & JS > JS** tab.  
+5. **Save** and **Publish** the module.
+6. Edit your page/template: drag the “WoodWing Assets Savings” module onto it.
+7. In the module inspector, configure:
+   • Upload default logo.  
+   • Set accent color, form title/description, links, hourly rate.  
+8. Publish your page.  
+9. **Test** on desktop/tablet/mobile, check console for JS errors.
+10. **Troubleshooting**  
+   • Ensure require_css/require_js paths match module.path.  
+   • Verify HubL bindings (e.g. {{ module.hourly_rate }}).  
+   • Clear HubSpot cache if changes don’t appear.
